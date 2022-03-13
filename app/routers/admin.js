@@ -4,8 +4,8 @@ const routes = express.Router()
 const UserControler = require("./../controllers/admin/UserControler");
 const MiddValidator = require ("./../middleware/MiddValidator")
 
-routes.post("/professores", UserControler.CadastroProf );
-routes.post("/alunos", UserControler.CadastroAluno );
+routes.post("/professores", MiddValidator.CadastroProf, UserControler.CadastroProf );
+routes.post("/alunos", MiddValidator.CadastroAluno, UserControler.CadastroAluno );
 routes.post("/escola", MiddValidator.CadastroEscola, UserControler.CadastroEscola );
 
 
